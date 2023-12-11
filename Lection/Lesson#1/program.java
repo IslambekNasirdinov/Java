@@ -46,11 +46,55 @@ public class program {
         System.out.println();
 
          // Получение данных из терминала
+
         Scanner iScanner = new Scanner(System.in);
-        System.out.printf("name: ");
+        /*System.out.printf("name: ");
         String name = iScanner.nextLine();
         System.out.printf("Привет, %s!", name);
+        iScanner.close();*/
+
+      /*  System.out.printf("int a: ");
+        int x2 = iScanner.nextInt();
+        System.out.printf("double a: ");
+        double y2 = iScanner.nextDouble();
+        System.out.printf("%d + %f = %f", x2, y2, x2+y2);
+        iScanner.close();*/
+        /*
+        System.out.printf("int a: ");
+        boolean flag = iScanner.hasNextInt();
+        System.out.println(flag);
+        int i = iScanner.nextInt();
+        System.out.println(i);
         iScanner.close();
+        */
+
+        // Канкатинация строк это катострофа 
+        // так нельза делать
+        String q = "qwer";
+        int a1 = 123;
+        String q1 = a1 + q;
+        System.out.println(q1);
+        // :(
+/*
+        int a3 = 2, b3 =1;
+        int c3 = a3 + b3;
+        String res = a3 + "+" + b3 + "=" + c3;
+        System.out.println(res);*/
+
+        // Форматированный вывод
+        int a3 = 2, b3 =1;
+        int c3 = a3 + b3;
+        String res = String.format("%d + %d = %d /n",a3, b3, c3);
+        System.out.println(res);
+        lib.sayHi();
+        lib.minNumber();
+
+        for (int i = 0; i < 10; i++){
+            if (i % 2==0){
+                continue;
+            }
+            System.out.println(i);
+        }
     }
 
 }
