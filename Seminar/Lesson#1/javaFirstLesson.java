@@ -7,7 +7,7 @@ public interface javaFirstLesson {
        // task1();
         //task2();
         //task3();
-
+        System.out.println(task4("isi,isil,ant,lkfd"));  
        System.out.println(task6(2, -2));
     }
     static void task1(){
@@ -73,7 +73,7 @@ public interface javaFirstLesson {
 
     }
 
-    static void task4(String str){
+    static String task4(String[] strs){
         /*
          * Задание №4
 Напишите метод, который находит самую длинную строку общего
@@ -81,6 +81,30 @@ public interface javaFirstLesson {
 Если общего префикса нет, вернуть пустую строку "".
          */
         
+            if(strs.length == 0){
+              return "";
+            }
+            if (strs.length == 1){
+              return strs[0];
+            }
+             
+            String rez = strs[0];
+            for(int i = 1; i < strs.length; i ++){
+              String cur = strs[i];
+              int reader = 0;
+              int lastCommon = 0;
+              while(reader < rez.length() && reader < cur.length()){
+                if(rez.charAt(reader) == cur.charAt(reader)){
+                  lastCommon ++;
+                } else {
+                  break;
+                }
+                reader++;
+              }
+              rez = rez.substring(0, lastCommon);
+            }
+            return rez;
+          
     }
     static String task5(String str){
         /*
@@ -96,6 +120,7 @@ public interface javaFirstLesson {
         } 
         return result;
     }
+
     static double task6(int a, int b){
         /*
          * Задание №6 (доп)
@@ -112,5 +137,38 @@ public interface javaFirstLesson {
         }
         return b > 0 ? result: 1/result;
     }
-
+    static void task7(){
+        /*
+         * Задание №7 (доп)
+На вход некоторому исполнителю подаётся два числа (a, b). У исполнителя есть
+две команды
+- команда 1 (к1): увеличить в с раза, а умножается на c
+- команда 2 (к2): увеличить на d ( +2 ), к a прибавляется d
+Написать программу, которая выдаёт набор команд, позволяющий число a
+превратить в число b или сообщить, что это невозможно
+Пример 1: а = 1, b = 7, c = 1, d = 3
+ответ: к1, к1, к1, к1, к1, к1 или к1, к2, к1, к1, к1 или к1, к1, к2, к1.
+Пример 2: а = 11, b = 7, c = 2, d = 1
+ответ: “”. 
+         */
+    }
+    static void task8(){
+        /*
+         * Задание №8 (доп)
+Задан массив, например, nums = [1,7,3,6,5,6].
+Написать программу, которая найдет индекс i для этого массива
+такой, что сумма элементов с индексами < i равна сумме
+элементов с индексами > i. 
+         */
+    }
+    static void task9(){
+        /*
+         * Задание №9 (доп)
+Записать в файл следующие данные:
+Name Surname Age
+Kate Smith 20
+Paul Green 25
+Mike Black 23 
+         */
+    }
 }
