@@ -6,7 +6,9 @@ public interface javaFirstLesson {
     public static void main(String[] args) {
        // task1();
         //task2();
-        task3();
+        //task3();
+
+       System.out.println(task6(2, -2));
     }
     static void task1(){
      /*Задание №1
@@ -56,8 +58,8 @@ public interface javaFirstLesson {
 эти элементы в конец массива.
 Таким образом, первые несколько (или все) элементов массива
 должны быть отличны от заданного, а остальные - равны ему. */
-        int[] nums = {3,2,2,3,4,5,3,6,8};
-        int val = 2;
+        int[] nums = {3,2,2,3};
+        int val = 3;
         int[] tempArr = new int[nums.length];
         Arrays.fill(tempArr, val);
         int count = 0;
@@ -71,5 +73,44 @@ public interface javaFirstLesson {
 
     }
 
-    
+    static void task4(String str){
+        /*
+         * Задание №4
+Напишите метод, который находит самую длинную строку общего
+префикса среди массива строк.
+Если общего префикса нет, вернуть пустую строку "".
+         */
+        
+    }
+    static String task5(String str){
+        /*
+         * Задание №5 (доп)
+Во фразе "Добро пожаловать на курс по Java" переставить слова
+в обратном порядке.
+         */
+        str = str.toLowerCase();
+        String[] arr = str.split(" ");
+        String result="";
+        for (int i = arr.length -1; i >= 0; i--){
+            result +=arr[i] + " ";
+        } 
+        return result;
+    }
+    static double task6(int a, int b){
+        /*
+         * Задание №6 (доп)
+Реализовать функцию возведения числа а в степень b. a, b из Z.
+Сводя количество выполняемых действий к минимуму.
+Пример 1: а = 3, b = 2, ответ: 9
+Пример 2: а = 2, b = -2, ответ: 0.25
+Пример 3: а = 3, b = 0, ответ: 1
+         */
+        double result = 1;
+        int c = (b < 0) ? -b :b;
+        for (int i = 0; i < c; i++){
+            result *=a;
+        }
+        return b > 0 ? result: 1/result;
+    }
+
 }
