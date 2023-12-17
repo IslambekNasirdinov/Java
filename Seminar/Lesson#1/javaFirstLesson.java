@@ -7,8 +7,12 @@ public interface javaFirstLesson {
        // task1();
         //task2();
         //task3();
-        System.out.println(task4("isi,isil,ant,lkfd"));  
-       System.out.println(task6(2, -2));
+       // System.out.println(task4("isi,isil,ant,lkfd"));  
+       //System.out.println(task6(2, -2));
+       //System.out.println(honeTask1(4));
+       //honeTask2();
+       //System.out.println(calculate('+',7,3));
+       calculate('l', 7, 3);
     }
     static void task1(){
      /*Задание №1
@@ -171,4 +175,105 @@ Paul Green 25
 Mike Black 23 
          */
     }
+    static Integer honeTask1(int n){
+      /*
+       * N-ое треугольное число
+Вычислить n-ое треугольного число(сумма чисел от 1 до n).
+Внутри класса Answer напишите метод countNTriangle, который принимает число n и возвращает его n-ое 
+треугольное число.
+Если число n < 1 (ненатуральное) метод должен вернуть -1.
+
+Пример
+
+n = 4 -> 10
+n = 5 -> 15
+*/
+       
+      int result = 0;
+      if(n >0)
+      return result =(n*(n+1)/2);
+      else
+      return result= -1;
+  }
+
+  static void honeTask2(){
+    /*
+     * Вывести простые числа
+
+Напишите функцию printPrimeNums, которая выведет на экран все простые числа в промежутке от 1 до 1000,
+ каждое на новой строке.
+
+Напишите свой код в методе printPrimeNums класса Answer.
+Пример
+2
+3
+5
+7
+11
+...
+     */
+    for (int j = 2; j <= 1000; j++) {
+      boolean simple = false;
+
+      for (int i = 2; i * i <= j; i++) {
+          simple = (j % i == 0);
+          if (simple) {
+              break;
+          }
+      }
+      if (!simple) {
+        System.out.println(j);
+          
+      }
+  }
+  // Решение с Автотеста
+  /*
+   *  // Проход начинается с 2, т.к. это число является наименьшим простым
+        for (int i = 2; i <= 1000; i++) {
+
+            boolean isPrime = true;
+
+            // Проверка, является ли число i простым
+            // Проход по циклу до корня числа,
+            // т.к. дальше нет смысла искать, делителей нет.
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            // Если число i простое, вывод его на экран
+            if (isPrime)
+                System.out.println(i);
+        }
+   */
+}
+  static void calculate(char op, int a, int b) {
+  /*
+   * Калькулятор
+
+Реализуйте простой калькулятор
+В методе calculate класса Calculator реализовать калькулятор, который будет выполнять математические операции 
+(+, -, *, /) над двумя целыми числами и возвращать результат вещественного типа.
+В классе Printer необходимо реализовать проверку переданного оператора, при некорректном операторе программа 
+должна вывести сообщение об ошибке "Некорректный оператор: 'оператор'".
+
+Аргументы, передаваемые в метод/функцию:
+
+'3'
+'+'
+'7'
+На выходе:
+
+
+10.0
+   */
+  if (op == '+') System.out.println(a+b);
+  else if (op == '-') System.out.println(a-b);
+  else if (op == '*') System.out.println(a*b);
+  else if (op == '/') System.out.println(a/b);
+  else System.out.println("Некорректный оператор: '"+ op +"'");
+  
+}
+
 }

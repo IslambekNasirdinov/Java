@@ -12,29 +12,62 @@ N-ое треугольное число
 n = 4 -> 10
 n = 5 -> 15
 */
+
+
+
 public class HomeTask1 {
     // Т(n) = (n*(n+1)/2)
- static void main(String[] args){
-    //System.out.print(countNTriangle(2));
-   countNTriangle(2);
- }
+    public static void main(String[] args) {
 
-    static Integer countNTriangle(int n){
-        if(n < 0)          
-        return 1;
-    else
-        return( n + countNTriangle(n-1) );
+        for (int j = 2; j <= 100; j++) {
+            boolean simple = false;
 
-
-        /*if (n >= 0){
-            return  (n*(n+1)/2);
+            for (int i = 2; i * i <= j; i++) {
+                simple = (j % i == 0);
+                if (simple) {
+                    break;
+                }
+            }
+            if (!simple) {
+                System.out.print(j + " ");
+            }
         }
-        else{
-            return -1;
-        }
-        */
+    }
        
         
     }
+
     
+    //      Решение с Автотеста
+    /*
+     * class Answer {
+    public int countNTriangle(int n){
+if (n < 1) return -1;
+    int sum = 0;
+    for(int i = 1; i <= n; i++){
+          sum += i;
+    }
+    return sum;
+    }
 }
+
+public class Printer{ 
+    public static void main(String[] args) { 
+      int n = 0;
+
+      if (args.length == 0) {
+        n = 4;
+      }
+      else{
+        n = Integer.parseInt(args[0]);
+      }     
+
+      Answer ans = new Answer(); 
+      int itresume_res = ans.countNTriangle(n);     
+      System.out.println(itresume_res);
+    }
+}
+
+     */
+
+
