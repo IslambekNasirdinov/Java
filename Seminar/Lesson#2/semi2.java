@@ -1,5 +1,6 @@
 import jdk.jshell.execution.LoaderDelegate;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -16,8 +17,9 @@ public class semi2{
        // System.out.println(task1(5,'a','b'));
        // task2("aabbvlllld");
        // System.out.println(task3("otto"));
-        tak4(wordRepeat(11,"Test"));
-        task5("test");
+       // tak4(wordRepeat(11,"Test"));
+       // task5("test");
+        task6();
 
     }
 
@@ -119,8 +121,11 @@ boolean значение).*/
 3 Расширение файла:
 4 Расширение файла: jpg
 */
-
-            
+      File file = new File("C:\\Users\\IsiProgMan\\IdeaProjects\\JavaLesson_GB\\text.txt");
+      String fileName = file.getName();
+      int dotIndex = fileName.lastIndexOf('.');
+      String extension = (dotIndex == -1) ?"" : fileName.substring(dotIndex);
+        System.out.println("Расширение файла:"+extension);
         }
     static void homeTask1(){
         /* ДЗ
@@ -149,4 +154,3 @@ boolean значение).*/
 
     }
 
-}
