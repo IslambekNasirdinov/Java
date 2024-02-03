@@ -2,9 +2,9 @@ import java.util.*;
 
 public class Lection_5 {
     public static void main(String[] args) {
-        //Ex001_HashMap();
-        //Ex002_HashMap();
-        //Ex003_HashMap();
+        Ex001_HashMap();
+        Ex002_HashMap();
+        Ex003_HashMap();
         Ex004_TreeMap();
         Ex005_LinkedHashMap();
         Ex006_HashTable();
