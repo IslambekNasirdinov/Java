@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 public class Seminar_5 {
     public static void main(String[] args) {
@@ -19,8 +17,12 @@ public class Seminar_5 {
         System.out.println(passwords.getByLastName("Иванов"));
          */
        // System.out.println(task1("foo","bar"));
-        System.out.println(task2("[a+(1*3)"));
-
+        //System.out.println(task2("[a+(1*3)"));
+        //task7("Мороз и солнце день чудесный " +
+                //"Еще ты дремлешь друг прелестный " +
+               // "Пора красавица проснись");
+        //System.out.println(task3("MMXXII"));
+       // System.out.println(task4(2022));
 
     }
 
@@ -83,19 +85,54 @@ Output: true
         if (!stack.empty()) return false;
         return true;
     }
-    static void task3(){
+    static Integer task3(String str){
         /*
         Задание №3
 Написать метод, который переведет число из римского формата записи в арабский.
 Например, MMXXII = 2022
 
          */
+        HashMap<Character, Integer> map = new HashMap<>();
+        map.put('I',1);
+        map.put('V',5);
+        map.put('X',10);
+        map.put('L',50);
+        map.put('C',100);
+        map.put('D',500);
+        map.put('M',1000);
+
+        int end = str.length()-1;
+        char[] arr = str.toCharArray();
+        int arabian;
+        int result = map.get(arr[end]);
+        for (int i =end-1; i >= 0 ; i--) {
+            arabian = map.get(arr[i]);
+
+            if (arabian < map.get(arr[i+1])){
+                result -= arabian;
+            } else {
+                result += arabian;
+            }
+
+        }
+        return result;
+
     }
     static void task4(){
         /*
         Задание №4
 Написать метод, который переведёт данное целое число в римский формат.
          */
+
+        HashMap<Integer, Character> map = new HashMap<>();
+        map.put(1,'I');
+        map.put(5,'V');
+        map.put(10,'X');
+        map.put(50,'L');
+        map.put(100,'C');
+        map.put(500,'D');
+        map.put(1000,'M');
+
     }
     static void task5(){
         /*
@@ -113,6 +150,27 @@ Output: true
 Шахматную доску размером NxN обойти конём так, чтобы фигура в каждой клетке была строго
 один раз.
          */
+    }
+    static void task7(String str){
+        /*
+        * Мороз и солнце день чудесный Еще ты дремлешь друг прелестный Пора красавица проснись
+        * */
+    String[] words = str.split(" ");
+    Map <Integer, List<String>> map = new TreeMap<>();
+    //Map <Integer, List<String>> map = new TreeMap<>(Comparator.reverseOrder());Сортирует по убыванию
+    for (String word:
+    words){
+        int len = word.length();
+        if (map.containsKey(len)){
+            List<String>  list= map.get(len);
+            list.add(word);
+        } else {
+            List<String> list = new ArrayList<>();
+            list.add(word);
+            map.put(len, list);
+        }
+    }
+        System.out.println(map);
     }
     static void homeTask(){
         /*
